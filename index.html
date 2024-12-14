@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
       body {
         background-image: url(./images/login.jpeg);
@@ -15,7 +16,7 @@
         height: 100vh;
       }
       .login {
-        height: 26em;
+        height: 28em;
         width: 25em;
         background-color: white;
         opacity: 0.7;
@@ -31,31 +32,35 @@
       }
       .heading {
         font-family: Arial, Helvetica, sans-serif;
-        margin-bottom: 1.5em;
+        margin-bottom: 1.1em;
         margin-top: 0.5em;
       }
       .email,
-      #password {
-        width: 17em;
+      #password,
+      .form-control {
+        width: 18em;
         padding: 1em;
         border-radius: 1em;
         font-size: 1.1em;
-        margin-bottom: 1em;
+        
       }
+  
       .email::placeholder {
         font-family: Arial, Helvetica, sans-serif;
       }
       .submit {
-        margin-top: 0.5em;
-        padding: 1em;
+        margin-top: 1em;
+        padding: 0.6em 1.2em;
         border-radius: 1em;
-        background-color: greenyellow;
-        color: black;
+        background-color: rgb(10, 34, 89);
+        color: rgb(249, 248, 248);
         margin-bottom: 2em;
+       border-width: 1px;
       }
       .submit:hover {
         background-color: white;
         cursor: pointer;
+        color: black;
       }
       .link {
         color: red;
@@ -91,12 +96,14 @@
         .login {
           margin-left: 3.2em;
           margin-top: 2.2em;
-          height: 25em;
+          height: 26em;
           width: 20em;
+          margin-right : 3.2em
         }
 
         .email,
-        #password {
+      #password,
+      .form-control {
           width: 12em;
           padding: 1em;
           border-radius: 1em;
@@ -117,7 +124,7 @@
           font-weight: bold;
           position: absolute;
           top: 6em;
-          left: 7em;
+          left: 6.4em;
         }
       }
       @media (min-width: 427px) and (max-width: 769px) {
@@ -126,10 +133,12 @@
           margin-top: 2.2em;
           height: 29em;
           width: 25em;
+          margin-right: 13em;
         }
 
         .email,
-        #password {
+      #password,
+      .form-control {
           width: 16em;
           padding: 1em;
           border-radius: 1em;
@@ -164,7 +173,7 @@
       <img src="./images/logo-1-removebg-preview.png" alt="" class="logo-1" />
       <h2 class="heading">Sign in</h2>
       <form action="" class="form">
-        <input
+        <!-- <input
           type="email"
           placeholder="Email"
           class="email"
@@ -179,13 +188,21 @@
           required
           minlength="5"
           name="password"
-        />
+        /> -->
+        <div class="form-floating mb-3 " >
+          <input type="email" class="form-control email" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating ">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
         <button type="submit" class="submit">Submit</button>
       </form>
       <span
         >Not a Member ? <a href="./signup.html" class="link">Sign Up</a></span
       >
-      <span>Login as a <a href="" class="link">Guest</a></span>
+      <span>Login as a <a href="" class="link" id="Guest">Guest</a></span>
     </div>
 
     <script>
@@ -193,7 +210,7 @@
       submit.addEventListener("click", (e) => {
         e.preventDefault();
         let email = document.querySelector(".email").value;
-        let password = document.querySelector("#password").value;
+        let password = document.querySelector("#floatingPassword").value;
         async function fetchUsers() {
           let data = await fetch("http://localhost:3000/users");
           let details = await data.json();
@@ -211,6 +228,24 @@
         }
         fetchUsers();
       });
+
+      let guest = document.querySelector('#Guest');
+      guest.addEventListener("click",(e)=>{
+        e.preventDefault()
+        let guestId = ("Guest" + Math.floor(Math.random()*10000))
+        let data = fetch("http://localhost:3000/users",{
+          method : "POST",
+          headers : {
+            "content-type":"applictaion/json"
+          },
+          body : JSON.stringify({guestId})
+        })
+        localStorage.setItem("LoggedIn-Guest",JSON.stringify(guestId))
+        alert('Login successfull!')
+        window.location.href = "./home.html";
+      })
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
