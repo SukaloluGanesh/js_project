@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      body {
+        background-image: url(./images/loginbg-3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        background-position: center;
+        height: 100vh;
+      }
+      .signup {
+        height: 30em;
+        width: 25em;
+        background-color: lightblue;
+        opacity: 0.9;
+        border-radius: 2em;
+        position: absolute;
+        top: 20%;
+        left: 37%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* gap: 1em; */
+        padding: 1em;
+        box-sizing: border-box;
+      }
+      .logo-container {
+        position: relative;
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 0px;
+      }
+      .tag {
+        font-size: 1.2rem;
+        color: black;
+        font-weight: bold;
+        position: absolute;
+        top: 6.5em;
+        left: 0.5em;
+      }
+      .form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .heading {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 1em;
+        margin-top: 0.5em;
+      }
+      .logo-1 {
+        height: 3em;
+        width: 3em;
+      }
+      .form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7em;
+      }
+      .email,
+      #password,
+      #cpassword,
+      .Username,
+      .input-opt {
+        width: 20em;
+        padding: 0.7em;
+        border-radius: 1em;
+        font-size: 1em;
+        margin-bottom: 0.4em;
+      }
+      .email::placeholder {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .submit,
+      .btn-otp {
+        margin-top: 0.5em;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: greenyellow;
+        color: black;
+        margin-bottom: 2em;
+      }
+      .submit:hover {
+        background-color: white;
+        cursor: pointer;
+      }
+      .verify-otp {
+        height: 17em;
+        width: 25em;
+        background-color: lightblue;
+        opacity: 0.9;
+        border-radius: 2em;
+        position: absolute;
+        top: 32%;
+        left: 37%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+        box-sizing: border-box;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-conatiner">
+      <img src="./images/logo-1-removebg-preview.png" alt="" class="logo" />
+      <samll class="tag">Travel Made Easy</samll>
+    </div>
+    <div class="signup">
+      <img src="./images/logo-1-removebg-preview.png" alt="" class="logo-1" />
+      <h2 class="heading">Sign up</h2>
+      <form action="" class="form">
+        <input
+          type="text"
+          placeholder="Username"
+          required
+          minlength="4"
+          class="Username"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          class="email"
+          required
+          minlength="9"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+          id="password"
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          required
+          pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+          id="cpassword"
+        />
+        <button type="submit" class="submit">Register</button>
+      </form>
+      <span>Already have an account? <a href="./index.html"> Sign in</a></span>
+    </div>
+    <div class="verify-otp">
+      <h2>OTP Verification</h2>
+      <input type="text" placeholder="Enter OTP" class="input-opt" />
+      <button type="button" class="btn-otp">Verify</button>
+    </div>
+
+    <script>
+      let submit = document.querySelector(".submit");
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        let username = document.querySelector(".Username").value;
+        let email = document.querySelector(".email").value;
+        let password = document.querySelector("#password").value;
+        let cpassword = document.querySelector("#cpassword").value;
+        // console.log(password)
+        // console.log(cpassword)
+        if (password == cpassword) {
+          otp(username, email, password);
+        } else {
+          alert("Confirm password did not match");
+        }
+      });
+      function otp(username, email, password) {
+        let alertOtp = Math.floor(Math.random() * 100000);
+        alert(`OTP is ${alertOtp}`);
+        let signup = document.querySelector(".signup");
+        signup.style.display = "none";
+        let verifyOtp = document.querySelector(".verify-otp");
+        verifyOtp.style.display = "block";
+        let btnOtp = document.querySelector(".btn-otp");
+
+        btnOtp.addEventListener("click", () => {
+          let inputOpt = document.querySelector(".input-opt").value;
+          console.log(username, email, password);
+          if (alertOtp == inputOpt) {
+            alert("Registered successful !");
+            let data = fetch("http://localhost:3000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "appliction/json",
+              },
+              body: JSON.stringify({
+                username,
+                email,
+                password,
+              }),
+            });
+            window.location.href = "./index.html";
+          } else {
+            alert("Invalid OTP !");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

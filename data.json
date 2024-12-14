@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "username": "ganesh",
+      "email": "ganesh@gamil.com",
+      "password": "123456",
+      "id": "8400"
+    },
+    {
+      "id": "19b2",
+      "username": "rakesh",
+      "email": "rakesh@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "0a59",
+      "username": "shiva",
+      "email": "shiva@gamil.com",
+      "password": "12345"
+    },
+    {
+      "id": "2f85",
+      "username": "roshan",
+      "email": "roshan@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "ab15",
+      "username": "Naga Ganesh",
+      "email": "nagaganesh@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "0bbe",
+      "username": "meeraj",
+      "email": "meeraj@gmail.com",
+      "password": "123456"
+    }
+  ]
+}

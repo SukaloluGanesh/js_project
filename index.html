@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <style>
+      body {
+        background-image: url(./images/login.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        background-position: center;
+        height: 100vh;
+      }
+      .login {
+        height: 26em;
+        width: 25em;
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* gap: 1em; */
+        padding: 1em;
+        box-sizing: border-box;
+        margin-left: 60em;
+      }
+      .heading {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 1.5em;
+        margin-top: 0.5em;
+      }
+      .email,
+      #password {
+        width: 17em;
+        padding: 1em;
+        border-radius: 1em;
+        font-size: 1.1em;
+        margin-bottom: 1em;
+      }
+      .email::placeholder {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .submit {
+        margin-top: 0.5em;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: greenyellow;
+        color: black;
+        margin-bottom: 2em;
+      }
+      .submit:hover {
+        background-color: white;
+        cursor: pointer;
+      }
+      .link {
+        color: red;
+      }
+
+      .logo-1 {
+        height: 3em;
+        width: 3em;
+      }
+      .logo-container {
+        position: relative;
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 0px;
+      }
+      .tag {
+        font-size: 1.2rem;
+        color: #555;
+        font-weight: bold;
+        position: absolute;
+        top: 6.5em;
+        left: 0.5em;
+      }
+      .form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      @media screen and (max-width: 427px) {
+        .login {
+          margin-left: 3.2em;
+          margin-top: 2.2em;
+          height: 25em;
+          width: 20em;
+        }
+
+        .email,
+        #password {
+          width: 12em;
+          padding: 1em;
+          border-radius: 1em;
+          font-size: 0.8em;
+          margin-bottom: 1em;
+        }
+        .logo-conatiner {
+          /* width: 10em; */
+          margin-top: 1em;
+          height: 7em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .tag {
+          font-size: 1.2rem;
+          color: #555;
+          font-weight: bold;
+          position: absolute;
+          top: 6em;
+          left: 7em;
+        }
+      }
+      @media (min-width: 427px) and (max-width: 769px) {
+        .login {
+          margin-left: 13em;
+          margin-top: 2.2em;
+          height: 29em;
+          width: 25em;
+        }
+
+        .email,
+        #password {
+          width: 16em;
+          padding: 1em;
+          border-radius: 1em;
+          font-size: 1em;
+          margin-bottom: 1em;
+        }
+        .logo-conatiner {
+          /* width: 10em; */
+          margin-top: 1em;
+          height: 7em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .tag {
+          font-size: 1.2rem;
+          color: #555;
+          font-weight: bold;
+          position: absolute;
+          top: 6em;
+          left: 16em;
+        }
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="logo-conatiner">
+      <img src="./images/logo-1-removebg-preview.png" alt="" class="logo" />
+      <samll class="tag">Travel Made Easy</samll>
+    </div>
+    <div class="login">
+      <img src="./images/logo-1-removebg-preview.png" alt="" class="logo-1" />
+      <h2 class="heading">Sign in</h2>
+      <form action="" class="form">
+        <input
+          type="email"
+          placeholder="Email"
+          class="email"
+          required
+          minlength="8"
+          name="email"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+          minlength="5"
+          name="password"
+        />
+        <button type="submit" class="submit">Submit</button>
+      </form>
+      <span
+        >Not a Member ? <a href="./signup.html" class="link">Sign Up</a></span
+      >
+      <span>Login as a <a href="" class="link">Guest</a></span>
+    </div>
+
+    <script>
+      let submit = document.querySelector(".submit");
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        let email = document.querySelector(".email").value;
+        let password = document.querySelector("#password").value;
+        async function fetchUsers() {
+          let data = await fetch("http://localhost:3000/users");
+          let details = await data.json();
+          let finding = details.find(
+            (element) =>
+              email === element.email && password === element.password
+          );
+          if (finding) {
+            localStorage.setItem("LoggedIn-user", JSON.stringify(finding));
+            alert("Login successfull!");
+            window.location.href = "./home.html";
+          } else {
+            alert("Invalid email or password");
+          }
+        }
+        fetchUsers();
+      });
+    </script>
+  </body>
+</html>
