@@ -35,22 +35,6 @@
       "username": "meeraj",
       "email": "meeraj@gmail.com",
       "password": "123456"
-    },
-    {
-      "id": "beca",
-      "username": "Guest1417"
-    },
-    {
-      "id": "a0ad",
-      "guestId": "Guest2697"
-    },
-    {
-      "id": "d190",
-      "guestId": "Guest7042"
-    },
-    {
-      "id": "1d6b",
-      "guestId": "Guest2488"
     }
   ]
 }
