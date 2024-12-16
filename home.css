@@ -1,0 +1,141 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.logo-container {
+  position: relative;
+}
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 0px;
+}
+.tag {
+  font-size: 0.8rem;
+  color: whitesmoke;
+  font-weight: bold;
+  position: absolute;
+  top: 6.2em;
+  left: 4.9em;
+}
+.header {
+  background-color: rgb(10, 34, 89);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 15%;
+  width: 100%;
+  padding: 0.8em;
+  padding-top: 0;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+.bi-list {
+  color: white;
+  font-size: 2em;
+  display: none;
+}
+.nav {
+  padding-top: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.admin {
+  margin-top: 0.8em;
+  background-color: rgb(30, 102, 164);
+  padding: 0.5em;
+  border-radius: 1em;
+  border: none;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+.nav-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(10, 34, 89);
+}
+.nav-links {
+  text-decoration: none;
+  color: white;
+}
+.nav-links:hover {
+  color: orange;
+}
+.nav-links-1 {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 0.5em;
+  &:hover {
+    color: orange;
+  }
+}
+.nav-hide {
+  display: none;
+}
+
+/* section-1 */
+.section-1 {
+  background-image: url(./images/logobg-2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: auto;
+  background-position: center;
+}
+.content-1 {
+  height: 20%;
+  width: 20%;
+  background-color: white;
+}
+.userId {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+  gap: 0.5em;
+  position: relative;
+  &:hover {
+    /* background-color:rgb(30, 102, 164) ; */
+    cursor: pointer;
+    color: orange;
+  }
+}
+.username {
+  color: white;
+  height: 1em;
+  margin-top: 0.5em;
+  &:hover {
+    cursor: pointer;
+    color: orange;
+  }
+}
+.bi-person-circle {
+  color: white;
+  &:hover {
+    cursor: pointer;
+    color: orange;
+  }
+}
+.userOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.userOptions-1 {
+  display: none;
+  position: absolute;
+  background-color: rgb(30, 102, 164);
+  top: 2.5em;
+  width: 6em;
+  border-radius: 1em;
+}

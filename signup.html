@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="icon" href="./images/logo-1-removebg-preview.png" />
     <style>
       body {
         background-image: url(./images/loginbg-3.jpg);
@@ -87,7 +88,7 @@
         margin-top: 0.5em;
         padding: 1em;
         border-radius: 1em;
-        background-color:rgb(10, 34, 89);
+        background-color: rgb(10, 34, 89);
         color: white;
         margin-bottom: 2em;
         border-width: 1px;
@@ -194,7 +195,7 @@
           console.log(username, email, password);
           if (alertOtp == inputOpt) {
             alert("Registered successful !");
-            let data = fetch("http://localhost:3000/users", {
+            let data = fetch("https://jsproject-server.onrender.com/users", {
               method: "POST",
               headers: {
                 "content-type": "appliction/json",
