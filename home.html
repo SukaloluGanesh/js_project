@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="icon" href="./images/logo-1-removebg-preview.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="./home.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body>
+  <body class="body">
     <!-- section-1 -->
-    <section class="section-1">
+    <section class="section-1" id="home">
       <header class="header">
         <div class="logo-conatiner">
           <img src="./images/logo-1-removebg-preview.png" alt="" class="logo" />
@@ -27,65 +30,347 @@
         </div>
         <i class="bi bi-list"></i>
         <nav class="nav">
-          <a href="" class="nav-links">Home</a>
-          <a href="" class="nav-links">Services</a>
-          <a href="" class="nav-links">About</a>
-          <a href="" class="nav-links">Packages</a>
-          <a href="" class="nav-links">Country info</a>
-          <a href="" class="nav-links">Book</a>
-          <a href="" class="nav-links">Reviews</a>
-          <a href="" class="nav-links">Contact</a>
+          <a href="#home" class="nav-links">Home</a>
+          <a href="#services" class="nav-links">Services</a>
+          <a href="#about" class="nav-links">About</a>
+          <a href="#package" class="nav-links">Packages</a>
+          <!-- <a href="" class="nav-links">Country info</a> -->
+          <a href="#bookss" class="nav-links">Book</a>
+          <a href="#review" class="nav-links">Reviews</a>
+          <a href="#contact" class="nav-links">Contact</a>
           <!-- <a href="" class="nav-links">Admin Login</a> -->
           <!-- <a href="" class="nav-links">Log Out</a> -->
         </nav>
+        
         <div class="userId">
           <i class="bi bi-person-circle"></i>
           <p class="username"></p>
-          <div class="userOptions-1">
-            <div class="userOptions">
-              <a href="" class="nav-links-1">Bookings</a>
-              <a href="" class="nav-links-1">Log Out</a>
-            </div>
-          </div>
         </div>
-
-        <button type="button" class="admin">Admin Login</button>
+      
+        <button type="button" class="admin" >Admin Login</button>
       </header>
+      <div class="userOptions-1">
+        <div class="userOptions">
+          <a href="./bookings.html" class="nav-links-1">Bookings</a>
+          <a href="./index.html" class="nav-links-1">Log Out</a>
+        </div>
+      </div>
 
       <div class="nav-hide">
         <nav class="nav-1">
-          <a href="" class="nav-links-1">Home</a>
-          <a href="" class="nav-links-1">Services</a>
-          <a href="" class="nav-links-1">About</a>
-          <a href="" class="nav-links-1">Packages</a>
-          <a href="" class="nav-links-1">Country info</a>
-          <a href="" class="nav-links-1">Book</a>
-          <a href="" class="nav-links-1">Reviews</a>
-          <a href="" class="nav-links-1">Contact</a>
-          <a href="" class="nav-links-1">Admin Login</a>
-          <a href="" class="nav-links-1">Log Out</a>
+          <a href="#home" class="nav-links-1">Home</a>
+          <a href="#services" class="nav-links-1">Services</a>
+          <a href="#about" class="nav-links-1">About</a>
+          <a href="#package" class="nav-links-1">Packages</a>
+          <!-- <a href="" class="nav-links-1">Country info</a> -->
+          <a href="#bookss" class="nav-links-1">Book</a>
+          <a href="#review" class="nav-links-1">Reviews</a>
+          <a href="#contact" class="nav-links-1">Contact</a>
+          <a href="./adminlogin.html" class="nav-links-1">Admin Login</a>
+          <a href="./index.html" class="nav-links-1">Log Out</a>
         </nav>
+      </div>
+      <div class="section-1-content">
+        <h1>Travel The World & Explore The New Destination</h1>
+        <p>
+          Welcome to our travel Info. Explore new destinations and plan your
+          next adventure with us!
+        </p>
+        <button type="button" class="section-1_packages" >Packages</button>
       </div>
     </section>
 
-    <script>
-      let navHide = document.querySelector(".nav-hide");
-      let hamburger = document.querySelector(".bi-list");
-      hamburger.addEventListener("click", () => {
-        if (navHide.style.display === "none") {
-          navHide.style.display = "block";
-        } else {
-          navHide.style.display = "none";
-          
-        }
-      });
-    </script>
+    <!-- section-2 -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <section class="section-2" id="services">
+      <h1>Services</h1>
+      <div class="section-2-cards">
+        <div class="card">
+          <i class="bi bi-globe-central-south-asia"></i>
+          <h2>Around The World</h2>
+          <p>
+            Discover our global travel packages and explore the world's most
+            fascinating destinations.
+          </p>
+        </div>
+        <div class="card">
+          <i class="bi bi-airplane-fill"></i>
+          <h2>Fastest Travel</h2>
+          <p>
+            Experience the fastest and most convenient travel options with our
+            exclusive travel services.
+          </p>
+        </div>
+        <div class="card">
+          <i class="bi bi-building-fill"></i>
+          <h2>Affordable Hotels</h2>
+          <p>
+            Find the best deals on comfortable and affordable accommodations for
+            your trip.
+          </p>
+        </div>
+        <div class="card">
+          <i class="bi bi-megaphone-fill"></i>
+          <h2>Safety Guide</h2>
+          <p>
+            Stay safe during your travels with our comprehensive safety tips and
+            guidelines.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-2-part" id="about">
+        <div class="map-image">
+          <img src="./images/about-img.png" alt="" />
+        </div>
+        <div class="section-2-part-2">
+          <h1>About Us</h1>
+          <p>How Work This Travel Info</p>
+          <p>
+            Learn about our travel information services and how we can help you
+            plan your dream vacation.
+          </p>
+          <button type="button" class="btn-readMore">Read More</button>
+        </div>
+      </div>
+    </section>
+    <!-- section-3 -->
+    <section class="section-3">
+      <h1>Our Gallery</h1>
+
+      <div class="section-3-cards">
+        <img src="./images/p1.jpg" alt="" class="gallery" />
+        <img src="./images/p2.png" alt="" class="gallery" />
+        <img src="./images/p3.png" alt="" class="gallery" />
+        <img src="./images/p4.png" alt="" class="gallery" />
+        <img src="./images/p5.png" alt="" class="gallery" />
+      </div>
+
+      <div id="package"></div>
+    </section>
+
+    <!-- section-4 -->
+
+    <section class="section-4" >
+      <div class="section-4-1" id="bookss">
+        <img src="./images/book-img.png" alt="" />
+      </div>
+
+      <div class="section-4-2">
+        <h1 >BOOK YOUR DESTINATION</h1>
+        <form action="" class="form">
+          <div class="labels">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              class="form-1"
+              required
+              minlength="3"
+            />
+          </div>
+          <div class="labels">
+            <label for="mobile">Mobile Number</label>
+            <input
+              type="tel"
+              id="mobile"
+              placeholder="Enter Your Phone Number"
+              class="form-1"
+              required
+              minlength="3"
+            />
+          </div>
+          <div class="labels">
+            <label for="destinations">Destination</label>
+            <input
+              type="text"
+              placeholder="Enter the Destination"
+              id="destinations"
+              class="form-1"
+              required
+              minlength="3"
+            />
+          </div>
+          <div class="labels">
+            <label for="Members">Members</label>
+            <input
+              type="number"
+              name=""
+              id="Members"
+              placeholder="how many"
+              class="form-1"
+              min="0"
+              required
+            />
+          </div>
+          <div class="labels">
+            <label for="startdate">Start Date</label>
+            <input
+              type="date"
+              placeholder="DD-MM-YYYY"
+              id="startdate"
+              class="form-1"
+              required
+            />
+          </div>
+          <div class="labels">
+            <label for="enddate">End Date</label>
+            <input type="date" name="" id="enddate" class="form-1" required />
+          </div>
+          <div class="labels">
+            <label for="membersinfo">Members information</label>
+            <!-- <input type="text" name="" id="membersinfo" placeholder="Enter Members Name & Details" class="form-1"> -->
+            <textarea
+              name=""
+              id="membersinfo"
+              class="form-1"
+              placeholder="Enter Members Name & Details"
+              rows="7"
+              required
+            ></textarea>
+          </div>
+          <button type="button" class="booknow">Book Now</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- section-5 -->
+
+    <section class="section-5" id="review">
+      <div class="section-5-1">
+        <h1>What Customers Say</h1>
+        <div class="section-5-cards">
+          <div class="section-5-card1">
+            <div class="cards-5-img">
+              <div class="comment-img"></div>
+              <h3>Roshan</h3>
+            </div>
+            <div class="section-5-stars">
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+            </div>
+            <p>
+              Great service! I had an amazing experience traveling with Travel
+              Info. Highly recommended!
+            </p>
+          </div>
+
+          <div class="section-5-card1">
+            <div class="cards-5-img">
+              <div class="comment-img-2"></div>
+              <h3>Rakesh</h3>
+            </div>
+            <div class="section-5-stars">
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+            </div>
+            <p>
+              Travel Info made my trip hassle-free! From booking to
+              accommodations, everything was well-organized.
+            </p>
+          </div>
+          <div class="section-5-card1">
+            <div class="cards-5-img">
+              <div class="comment-img-3"></div>
+              <h3>Shiva Kumar</h3>
+            </div>
+            <div class="section-5-stars" >
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+              <span class="gold-star">&#9733;</span>
+            </div>
+            <p>
+              Good service and friendly staff. I had a memorable vacation thanks
+              to Travel Info's recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-5-2"  id="contact">
+        <div class="section-5-21">
+          <h1>Get in Touch</h1>
+          <p>
+            Contact us for any inquiries or assistance. <br />
+            We're here to help you <br />
+            plan your perfect vacation!
+          </p>
+          <h2>+91 04089-5999</h2>
+          <h2>travelmadeeasy@gmail.com</h2>
+          <h3>Hyderbad, india</h3>
+        </div>
+        <div class="section-5-22">
+          
+          <input type="text" placeholder="Name" required class="form-1" id="comname" />
+          <input type="email" placeholder="email" required class="form-1" id="comemail" />
+          <input type="tel" placeholder="Mobile" required class="form-1" id="commobile" />
+          <textarea
+            name=""
+            id="commess"
+            placeholder="Messgae"
+            rows="7"
+            class="form-1"
+            cols="12"
+          ></textarea>
+          <button type="button" class="sendd" >Send</button>
+  
+        </div>
+      </div>
+    </section>
+
+    <div class="line"></div>
+    <footer class="footer">
+      <div class="footer-1">
+        <h1>Travel Made Easy</h1>
+        <p>
+          Welcome to Travel Made Easy, your go-to source for all your travel needs.
+          Whether you're looking for exciting vacation packages, reliable travel
+          services, or helpful travel tips, we've got you covered. Plan your
+          next adventure with us!
+        </p>
+
+        <div class="social-links">
+          <i class="bi bi-youtube"></i>
+          <i class="bi bi-whatsapp"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-twitter-x"></i>
+        </div>
+      </div>
+
+      <div class="footer-2">
+
+        <u> <h2>Usefull Links</h2></u>
+        <div class="footer-links1">
+        <a href="#home"class="footer-links">Home</a>
+<a href="#about"class="footer-links">About Us</a>
+<a href="#package"class="footer-links">Packages</a>
+<a href="#bookss"class="footer-links">Book</a>
+<a href="#review"class="footer-links">review</a>
+<a href="#contact"class="footer-links">Contact Us</a>
+</div>
+
+
+      </div>
+
+      <div class="footer-3">
+       <u><h2> Policies</h2></u> 
+        <div class="footer-links1">
+          <a href=""class="footer-links">Terms & Conditions</a>
+  <a href=""class="footer-links">Privacy Policy</a>
+
+      </div>
+    </footer>
+
     <script src="./home.js"></script>
   </body>
 </html>

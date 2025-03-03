@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNow</title>
+    <link rel="icon" href="./images/logo-1-removebg-preview.png" />
+  <style>
+.logo-1 {
+        height: 3em;
+        width: 3em;
+      }
+      .logo-container {
+        position: relative;
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 0px;
+      }
+      .tag {
+        font-size: 1.2rem;
+        color:white;
+        font-weight: bold;
+        position: absolute;
+        top: 6.5em;
+        left: 0.5em;
+      }
+      .welcome {
+        position: absolute;
+        top: 0;
+        right: 22em;
+        color: white;
+        /* font-size: 10em; */
+      }
+ body{
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  background-color: rgb(14, 72, 123);
+  font-family: Arial, Helvetica, sans-serif;
+ }
+/* section-4 */
+.section-4 {
+  height: 125vh;
+  width: 100vw;
+  background-color: rgb(14, 72, 123);
+  text-align: center;
+  padding: 3em;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.section-4-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.section-4-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 1em;
+  height: auto;
+  width: 50%;
+  box-sizing: border-box;
+  gap: 1em;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.nenu{
+  margin-bottom: 2em;
+}
+.form-1 {
+  font-size: 1em;
+  border: none;
+  padding: 1em;
+  width: 28em;
+  border-radius: 1em;
+  text-decoration: none;
+  outline: none;
+}
+.labels {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+  align-items: start;
+  justify-content: center;
+}
+.booknow {
+  padding: 1em;
+  border: none;
+  border-radius: 1em;
+  background-color: rgb(30, 102, 164);
+  color: white;
+  width: 30em;
+  margin-top: 2em;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+
+.sendd {
+  padding: 1em;
+  border: none;
+  border-radius: 1em;
+  background-color: rgb(30, 102, 164);
+  color: white;
+  width: 30em;
+  margin-top: 2em;
+  cursor: pointer;
+  &:hover {
+    color: black;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="logo-conatiner">
+    <img src="./images/logo-1-removebg-preview.png" alt="" class="logo" />
+    <h1 class="welcome">Welcome User</h1>
+    <samll class="tag">Travel Made Easy</samll>
+  </div>
+
+  <section class="section-4" >
+    <div class="section-4-1" id="bookss">
+      <img src="./images/book-img.png" alt="" />
+    </div>
+
+    <div class="section-4-2">
+      <h1 class="nenu">BOOK YOUR DESTINATION</h1>
+      <form action="" class="form">
+        <div class="labels">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            class="form-1"
+            required
+            minlength="3"
+          />
+        </div>
+        <div class="labels">
+          <label for="mobile">Mobile Number</label>
+          <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter Your Phone Number"
+            class="form-1"
+            required
+            minlength="3"
+          />
+        </div>
+        <div class="labels">
+          <label for="destinations">Destination</label>
+          <input
+            type="text"
+            placeholder="Enter the Destination"
+            id="destinations"
+            class="form-1"
+            required
+            minlength="3"
+          />
+        </div>
+        <div class="labels">
+          <label for="Members">Members</label>
+          <input
+            type="number"
+            name=""
+            id="Members"
+            placeholder="how many"
+            class="form-1"
+            min="0"
+            required
+          />
+        </div>
+        <div class="labels">
+          <label for="startdate">Start Date</label>
+          <input
+            type="date"
+            placeholder="DD-MM-YYYY"
+            id="startdate"
+            class="form-1"
+            required
+          />
+        </div>
+        <div class="labels">
+          <label for="enddate">End Date</label>
+          <input type="date" name="" id="enddate" class="form-1" required />
+        </div>
+        <div class="labels">
+          <label for="membersinfo">Members information</label>
+          <!-- <input type="text" name="" id="membersinfo" placeholder="Enter Members Name & Details" class="form-1"> -->
+          <textarea
+            name=""
+            id="membersinfo"
+            class="form-1"
+            placeholder="Enter Members Name & Details"
+            rows="7"
+            required
+          ></textarea>
+        </div>
+        <button type="button" class="booknow">Book Now</button>
+      </form>
+    </div>
+  </section>
+  <script>
+    
+// destination
+let dest = document.querySelector("#destinations");
+dest.value = "";
+let desti = JSON.parse(sessionStorage.getItem("packageInfo")).place;
+dest.value = desti;
+// console.log(dest.textContent)
+
+    
+// booking session storage
+
+let booknow = document.querySelector(".booknow");
+
+booknow.addEventListener("click", () => {
+  let bookname = document.querySelector("#name").value;
+  let bookmobile = document.querySelector("#mobile").value;
+  let bookdesti = document.querySelector("#destinations").value;
+  let bookmem = document.querySelector("#Members").value;
+  let bookstart = document.querySelector("#startdate").value;
+  let bookend = document.querySelector("#enddate").value;
+  let bookinfo = document.querySelector("#membersinfo").value;
+
+  alert("Booking is Sucessfully!");
+
+  sessionStorage.setItem(
+    "bookingdetails",
+    JSON.stringify({
+      bookname,
+      bookmobile,
+      bookdesti,
+      bookmem,
+      bookstart,
+      bookend,
+      bookinfo,
+    })
+  );
+  window.open("./home.html")
+});
+
+  </script>
+</body>
+</html>

@@ -190,25 +190,65 @@
         verifyOtp.style.display = "block";
         let btnOtp = document.querySelector(".btn-otp");
 
-        btnOtp.addEventListener("click", () => {
-          let inputOpt = document.querySelector(".input-opt").value;
+        //   btnOtp.addEventListener("click", () => {
+        //     let inputOpt = document.querySelector(".input-opt").value;
+        //     console.log(username, email, password);
+        //     if (alertOtp == inputOpt) {
+        //       alert("Registered successful !");
+        //       let data = fetch("https://jsproject-server.onrender.com/users", {
+        //         method: "POST",
+        //         headers: {
+        //           "content-type": "application/json",
+        //         },
+        //         body: JSON.stringify({
+        //           username,
+        //           email,
+        //           password,
+        //         }),
+        //       });
+        //       window.location.href = "./index.html";
+        //     } else {
+        //       alert("Invalid OTP !");
+        //     }
+        //   });
+
+        btnOtp.addEventListener("click", async () => {
+          const inputOpt = document.querySelector(".input-opt").value;
+
+          // Ensure these variables are defined in the correct scope
           console.log(username, email, password);
-          if (alertOtp == inputOpt) {
-            alert("Registered successful !");
-            let data = fetch("https://jsproject-server.onrender.com/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify({
-                username,
-                email,
-                password,
-              }),
-            });
-            window.location.href = "./index.html";
+
+          if (+alertOtp === +inputOpt) {
+            alert("Registering...");
+
+            try {
+              const response = await fetch(
+                "https://jsproject-server.onrender.com/users",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    username,
+                    email,
+                    password,
+                  }),
+                }
+              );
+
+              if (response.ok) {
+                alert("Registration successful!");
+                window.location.href = "./index.html";
+              } else {
+                const errorData = await response.json();
+                alert(`Registration failed: ${errorData.message}`);
+              }
+            } catch (error) {
+              alert(`An error occurred: ${error.message}`);
+            }
           } else {
-            alert("Invalid OTP !");
+            alert("Invalid OTP!");
           }
         });
       }

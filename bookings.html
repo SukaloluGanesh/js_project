@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookings</title>
+    <link rel="icon" href="./images/logo-1-removebg-preview.png" />
+    <style>
+      body {
+        background-color: rgb(14, 72, 123);
+        margin: 0px;
+        padding: 0px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-1 {
+        height: 3em;
+        width: 3em;
+      }
+      .logo-container {
+        position: relative;
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 0px;
+        position: absolute;
+        left: 0em;
+      }
+      .tag {
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        top: 7.3em;
+        left: 0.5em;
+      }
+      .welcome {
+        position: absolute;
+        top: 0;
+        right: 22em;
+        color: white;
+      }
+
+      .information {
+        margin-top: 10em;
+      }
+      table {
+        border: black solid 1px;
+        background-color: rgb(45, 119, 164);
+        color: white;
+        text-align: center;
+        width: auto;
+        height: auto;
+      }
+      table thead tr th {
+        padding: 1em;
+        font-size: 1.2em;
+        border: 1px solid black;
+        background-color: rgb(45, 119, 164);
+      }
+
+      .tbody {
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+      }
+
+      .tbody tr td {
+        padding: 1em;
+      }
+      .back,
+      .logout {
+        padding: 1em;
+        border: none;
+        border-radius: 1em;
+        background-color: rgb(30, 102, 164);
+        color: white;
+        width: 5em;
+        margin-top: 6em;
+        cursor: pointer;
+        margin-left: 3em;
+        &:hover {
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-conatiner">
+      <img src="./images/logo-1-removebg-preview.png" alt="" class="logo" />
+      <h1 class="welcome">Bookings</h1>
+      <samll class="tag">Travel Made Easy</samll>
+    </div>
+
+    <div class="information">
+      <table border="2">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>Mobile Number</th>
+            <th>Where</th>
+            <th>Members</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Member Info</th>
+          </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+      </table>
+    </div>
+
+    <div>
+      <button type="button" class="back">Back</button>
+      <button class="logout">Logout</button>
+    </div>
+    <script>
+      let table = document.getElementsByTagName("table");
+      console.log(table);
+   
+      function addingData() {
+        let data = sessionStorage.getItem("bookingdetails");
+       let  tbody = document.querySelector(".tbody");
+        let tr = document.createElement("tr");
+
+        let data1 = JSON.parse(data);
+        console.log(data1);
+
+        for (const ele in data1) {
+          let td = document.createElement("td");
+          td.textContent = data1[ele];
+          tr.appendChild(td);
+        }
+
+        tbody.appendChild(tr);
+      }
+      addingData();
+
+      let back = document.querySelector(".back");
+      back.addEventListener("click", () => {
+        window.location.href = "./admin.html", "_self";
+      });
+
+      let logout = document.querySelector(".logout");
+      logout.addEventListener("click", () => {
+        window.location.href = "./adminlogin.html" , "_self";
+      });
+    </script>
+  </body>
+</html>
