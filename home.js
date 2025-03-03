@@ -157,7 +157,7 @@ for (let i = 0; i < packageData.length; i++) {
 let admin = document.querySelector(".admin");
 
 admin.addEventListener("click", () => {
-  window.location.href = "./adminlogin.html", "_self";
+  window.location.href = "./adminlogin.html";
   
 });
 
