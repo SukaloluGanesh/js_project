@@ -1332,8 +1332,8 @@
   }
   .section-2-part-2 {
     background-color: white;
-    height: 20em;
-    width: 20em;
+    height: 18em;
+    width: 17em;
     border-radius: 2em;
     
   }
@@ -1522,7 +1522,7 @@
     font-size: 1em;
     border: none;
     padding: 1em;
-    width: 17em;
+    width: 15em;
     border-radius: 1em;
     text-decoration: none;
     outline: none;
@@ -1562,11 +1562,11 @@
   }
   /* section-5 */
   .section-5 {
-    height: 311vh;
+    height: 290vh;
     width: 100vw;
     background-color: rgb(14, 72, 123);
     text-align: center;
-    padding: 3em;
+    padding: 2em;
     box-sizing: border-box;
     overflow-y: hidden;
     color: white;
