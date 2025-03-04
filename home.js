@@ -207,6 +207,7 @@ compalints.addEventListener("click", () => {
   let comemail = document.querySelector("#comemail").value;
   let commobile = document.querySelector("#commobile").value;
   let commess = document.querySelector("#commess").value;
+  console.log("sendd")
 
   alert("Message sent Sucessfully!");
   sessionStorage.setItem(

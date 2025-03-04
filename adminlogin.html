@@ -222,10 +222,15 @@
 
     <script>
       let guest = document.querySelector("#Guest");
-      guest.addEventListener("click", () => {
-        alert("Login successfull!");
-        window.open("./admin.html");
-      });
+      // guest.addEventListener("click", () => {
+      //   alert("Login successfull!");
+      //   window.open("./admin.html");
+      // });
+      guest.addEventListener("click", (e) => {
+  e.preventDefault(); 
+  alert("Login successful!");
+  window.location.href = "./admin.html";
+});
 
       let adminEmail = "ganesh@gmail.com";
       let adminPassword = 123456;
